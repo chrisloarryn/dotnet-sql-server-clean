@@ -1,16 +1,16 @@
-version: "3.9"
+version: '3.8'
+
 services:
-  sql_server:
+  sql-server:
     image: mcr.microsoft.com/mssql/server:2019-latest
-    container_name: sql_server
+    container_name: mi-sql-server
     environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=Password123
-      - MSSQL_PID=Developer
-      - MSSQL_TCP_PORT=1433
+      MSSQL_SA_PASSWORD: TuContraseñaSegura123!
+      MSSQL_PID: Express
+      ACCEPT_EULA: Y
     ports:
       - "1433:1433"
     volumes:
-      - ./sql_server/data:/var/opt/mssql/data
-      - ./sql_server/log:/var/opt/mssql/log
-      - ./sql_server/secrets:/var/opt/mssql/secrets
+      - mi-sql-data:/var/opt/mssql
+volumes:
+  mi-sql-data:
