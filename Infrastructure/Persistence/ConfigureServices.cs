@@ -8,6 +8,8 @@ namespace dotnet_backend.Infrastructure.Persistence
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            
+            
         }
 
         public DbSet<Lead> Leads { get; set; }
@@ -18,5 +20,8 @@ namespace dotnet_backend.Infrastructure.Persistence
         }
         
         
+        
     }
+    
+    
 }

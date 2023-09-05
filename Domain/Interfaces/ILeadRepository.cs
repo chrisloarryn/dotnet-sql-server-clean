@@ -4,10 +4,11 @@ namespace dotnet_backend.Domain.Interfaces
 {
     public interface ILeadRepository
     {
-        Task<Lead> GetByIdAsync(int id);
-        Task<IEnumerable<Lead>> GetAllAsync();
-        Task AddAsync(Lead lead);
-        Task UpdateAsync(Lead lead);
-        Task DeleteAsync(int id);
+        Task<Lead> GetById(int id);
+        Task<IEnumerable<Lead>> GetAll();
+        Task Add(Lead lead);
+        Task Update(Lead lead);
+        Task Delete(int id);
+        Task<bool> Exists(int id);
     }
 }

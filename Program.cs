@@ -16,6 +16,9 @@ void ConfigureServices(IServiceCollection services)
 }
 
 ConfigureServices(builder.Services);
+
+builder.Services.AddScoped<ILeadRepository, LeadRepository>();
+
 // Add controllers to the container.
 
 
