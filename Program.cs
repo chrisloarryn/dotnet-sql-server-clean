@@ -1,3 +1,4 @@
+using dotnet_backend.Domain.Interfaces;
 using dotnet_backend.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -10,7 +11,7 @@ void ConfigureServices(IServiceCollection services)
 {
     services.AddDbContext<ApplicationDbContext>(options =>
     {
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
     });
 }
 
