@@ -29,6 +29,8 @@ namespace dotnet_backend.Domain.Entities
     
     public class Lead
     {
+        // TODO: use Guid as primary key instead of int Id but keep Id for now.
+        public Guid Uuid { get; set; } = Guid.NewGuid();
         public int Id { get; set; }
         //Rut
         public string Rut { get; set; } = null!;
@@ -57,8 +59,8 @@ namespace dotnet_backend.Domain.Entities
         //tipo lead // tipo de lead (empresa, pensionado, trabajador, independiente)
         public TipoLead TipoLead { get; set; } = TipoLead.Trabajador;
         //fch registro // fecha de registro
-        public DateTime FchRegistro { get; set; }
-        //prioridad // prioridad de contacto
+        public DateTime FchRegistro { get; set; } = DateTime.Now;
+        //prioridad // priohttps://github.com/chrisloarryn/dotnet-sql-server-cleanridad de contacto
         public string Prioridad { get; set; } = null!;
         //ejecutivo asignado // ejecutivo de incorporacion asignado
         public string EjecutivoAsignado { get; set; } = null!;
