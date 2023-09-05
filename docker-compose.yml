@@ -1,16 +1,14 @@
 version: '3.8'
 
 services:
-  sql-server:
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    container_name: mi-sql-server
+  postgres:
+    image: postgres:12.2
+    restart: always
     environment:
-      MSSQL_SA_PASSWORD: TuContraseñaSegura123!
-      MSSQL_PID: Express
-      ACCEPT_EULA: Y
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     ports:
-      - "1433:1433"
+      - 65432:5432
     volumes:
-      - mi-sql-data:/var/opt/mssql
-volumes:
-  mi-sql-data:
+      - ./postgres-data:/var/lib/postgresql/data
